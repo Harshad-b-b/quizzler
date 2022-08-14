@@ -6,7 +6,7 @@
 .welcome-text{
     font-size: 4em;
     font-weight: bolder;
-    font-family: cursive;
+    font-family: var( --font-family);
     color: #3F4E4F;
     text-shadow:  5px 5px 0 #AEDBCE;
 }
@@ -19,12 +19,17 @@
 footer{
     position: absolute;
     bottom: 0;
-    font-family: cursive;
+    font-family: var( --font-family);
     font-size: 0.7rem;
 }
 header{
     position:absolute;
     top: 0;
-    font-family: cursive;
+    font-family: var( --font-family);
     font-size: 2rem;
 }
+@media only screen and (max-width: 800px) {
+    .responsive {
+      width: 100% !important;
+    }
+  }

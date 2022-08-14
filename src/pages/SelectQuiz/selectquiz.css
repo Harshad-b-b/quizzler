@@ -6,7 +6,7 @@
     border-radius: 5px;
     padding-left: 1em;
     outline: white;   
-    font-family: cursive;
+    font-family: var( --font-family);
     text-align: center;
     /* font-size: 1.5rem; */
     font-weight: bold;
@@ -38,7 +38,7 @@
     font-size: 2rem;
     color: rgb(71, 68, 68);
     font-weight: bolder;
-    font-family: cursive
+    font-family: var( --font-family);
     /* background-color: #FCFCFD; */
 }
 .img{
@@ -48,7 +48,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center ;
-    font-family: cursive;
+    font-family: var( --font-family);
 }
 .img > img {
     width: 100px;

@@ -13,7 +13,7 @@
   color: #36395A;
   cursor: pointer;
   display: inline-flex;
-  font-family: cursive;
+  font-family: var( --font-family);
   height: 48px;
   justify-content: center;
   line-height: 1;
@@ -31,7 +31,7 @@
   white-space: nowrap;
   will-change: box-shadow,transform;
   font-size: 18px;
-
+  autofocus:""
 }
 
 .Custombutton:focus {

@@ -153,7 +153,7 @@ export default function QuizaPage() {
                   )}
                 </div>
 
-                <ol className="54325">
+                <ol>
                   {questionAndAnswers.map((val1, i) => {
                     return (
                       <div class="card">

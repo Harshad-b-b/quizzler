@@ -79,7 +79,7 @@ export default function () {
                   <div className="row card p-4">
                     <div className="col-12 ">
                       <li>
-                        <b>{val}|</b>
+                        <b>{val}</b>
                       </li>
                     </div>
                     <div className="row">

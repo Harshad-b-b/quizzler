@@ -47,7 +47,7 @@
   color: #261C2C;
 
   background-color: #F7F7F7;
-  font-family: cursive;
+  font-family: var( --font-family);
 
 }
 .card > li >span{
@@ -80,7 +80,7 @@
 }
 .timer>div{
   font-size: 2rem;
-  font-family: cursive;
+  font-family: var( --font-family);
 }
 .holder{
   display: flex;
@@ -88,12 +88,16 @@
 }
 .btn2{
   align-self: center;
-  margin-top: -1em; 
-  margin-bottom: 1em;
+  margin-top: 1em; 
+  margin-bottom: 2em;
+}
+ol ,ul{
+  padding: 0 !important;
 }
 @media only screen and (max-width: 800px) {
   .containerwa {
-    font-size: 0.7rem;
+    /* font-size: 0.7rem; */
+    width: 100%;
   }
   .card > li >span{
   

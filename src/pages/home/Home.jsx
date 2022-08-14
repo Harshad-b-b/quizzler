@@ -28,10 +28,10 @@ export default function Home() {
       <header>
         <p>✌ Support World Peace ✌</p>
       </header>
-      <div className="row">
-        <div className="col-12 welcome-text">Welcome To Quizler</div>
+      <div className="row ">
+        <div className="col-12 welcome-text mt-7">Welcome To Quizler</div>
       </div>
-      <div className="row" style={{ width: "50%" }}>
+      <div className="row responsive" style={{ width: "50%" }}>
         <div className="col-12 welcome-text">
           <input
             className="input"
