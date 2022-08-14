@@ -26,7 +26,11 @@ header{
     position:absolute;
     top: 0;
     font-family: var( --font-family);
-    font-size: 2rem;
+    font-size: 1rem;
+    background: #C1D5A4;
+}
+header >p {
+    margin: 10px;
 }
 @media only screen and (max-width: 800px) {
     .responsive {
