@@ -1,0 +1,103 @@
+
+ li{
+    padding:0.5em; 
+ }
+ .containerwa span{
+  visibility: hidden;
+ }
+ .containerwa {
+  height: 80px;
+  width: 50%;
+  display: flex;
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  color: #3c4b67;
+}
+.containerwa:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.containerwa:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+  background-color: orange;
+}
+
+.containerwa:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+
+}
+.containerwa input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.card{
+  margin-top: 1em;
+  color: #261C2C;
+
+  background-color: #F7F7F7;
+  font-family: cursive;
+
+}
+.card > li >span{
+  color: #3c4b67;
+  font-size: 1.5rem;
+  font-weight:  bolder;
+}
+
+.li{
+  margin-left: 2em;
+
+}
+.timer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: end;  
+  font-size: 1rem;
+  height: 100px;
+  width: 100px;
+  background: #EC255A;
+  border-radius: 50%;
+  text-align: center;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  z-index: 3;
+  position: fixed;
+  bottom:0;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+}
+.timer>div{
+  font-size: 2rem;
+  font-family: cursive;
+}
+.holder{
+  display: flex;
+  flex-direction: column ;
+}
+.btn2{
+  align-self: center;
+  margin-top: -1em; 
+  margin-bottom: 1em;
+}
+@media only screen and (max-width: 800px) {
+  .containerwa {
+    font-size: 0.7rem;
+  }
+  .card > li >span{
+  
+    font-size: 1rem;
+   
+  }
+}

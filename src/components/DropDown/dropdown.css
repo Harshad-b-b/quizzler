@@ -1,0 +1,26 @@
+.dropdown{
+  color: #36395A;
+    background-color: #FCFCFD;
+    padding: 1em;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+text-align: center;
+font-weight: bold;
+font-family: cursive;
+font-size: 18px;
+outline: none;
+}
+.dropdown:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  }
+  
+  .dropdown:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+    cursor: pointer;
+  }
+option{
+    text-align: center;
+    font-weight: bold; 
+}

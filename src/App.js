@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import Home from "./pages/home/Home";
+import SelectQuiz from "./pages/SelectQuiz/SelectQuiz";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
+import QuizPage from "./pages/quizPage/QuizPage";
+import ResultPage from "./pages/result/ResultPage";
+import { useSelector } from "react-redux";
 function App() {
+  const redirect = useSelector((state) => state.redirect);
+  const navigate = useNavigate();
+  console.log(redirect);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route
+          path="/select-quiz"
+          element={redirect ? <SelectQuiz /> : <Navigate to="/" />}
+        />
+
+        {/* <Route
+          path="/quiz-page"
+          element={redirect ? <QuizPage /> : <Navigate to="/" />}
+        /> */}
+        <Route path="/quiz-page" element={<QuizPage />} />
+        <Route
+          path="/result-page"
+          element={redirect ? <ResultPage /> : <Navigate to="/" />}
+        />
+      </Routes>
     </div>
   );
 }
