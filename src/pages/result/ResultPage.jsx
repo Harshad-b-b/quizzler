@@ -39,19 +39,19 @@ export default function () {
         clearTimeout(timeout);
       };
     },
-    stopConfetti === 10 ? [] : [stopConfetti]
+    stopConfetti === 30 ? [] : [stopConfetti]
   );
   return (
     <div>
       <div className="container">
-        <div className="row d-flex justify-content-center score mt-4 ">
+        <div className="row d-flex justify-content-center score mt-4 card result-header pt-3 pb-2 ">
           <div className="col-12 d-flex justify-content-center">
             {scoreChecker ? (
               <div
                 className="d-flex justify-content-center"
                 style={{ width: "100%" }}
               >
-                <div style={{ display: stopConfetti === 10 ? "none" : "" }}>
+                <div style={{ display: stopConfetti === 30 ? "none" : "" }}>
                   <Confetti />
                 </div>
 
@@ -67,11 +67,13 @@ export default function () {
               </h3>
             )}
           </div>
+          <div className="row">
+            <p className="col-12 d-flex justify-content-center">
+              Please Check your answers below
+            </p>
+          </div>
         </div>
         <div className="row d-flex justify-content-center score">
-          <p className="col-12 d-flex justify-content-center">
-            Please Check your answers below
-          </p>
           <div className="row">
             <ol className="col-12">
               {location.state.questions.map((val, i) => {
@@ -82,13 +84,17 @@ export default function () {
                         <b>{val}</b>
                       </li>
                     </div>
-                    <div className="row">
+                    <div className="row result-answers">
                       <div className=" col-4 col-xs-6 col-md-4">
-                        <i>Correct Answer</i>
+                        <b>
+                          <i>Correct Answer</i>
+                        </b>
                         <br /> {location.state.correctAnswers[i]}
                       </div>
                       <div className="col-4 col-xs-6 col-md-4">
-                        <i>Your Answer</i>
+                        <b>
+                          <i>Your Answer</i>
+                        </b>
                         <br />
                         {location.state.userAnswers[i]
                           ? location.state.userAnswers[i]

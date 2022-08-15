@@ -3,24 +3,22 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as action from "../../actions/getCategoriesAction";
-
 import DropDown from "../../components/DropDown/DropDown";
 import Button from "../../components/Buttons/Button";
 import errorGif from "../../assets/error.gif";
 import loader from "../../assets/Book.gif";
 import "./selectquiz.css";
-import * as actionQuestions from "../../actions/getQuestions";
+
+//Variable For dificulty dropdown
 const difficulty = [
   { name: "Any Diffculty" },
   { name: "Easy" },
   { name: "Medium" },
   { name: "Hard" },
 ];
+
 export default function SelectQuiz() {
-  const [question, setQuestion] = React.useState({
-    response_code: "0",
-    results: [],
-  });
+  //All variable are specified here
   const navigate = useNavigate();
   const [userValues, setUserValues] = React.useState({
     amount: "",
@@ -30,16 +28,19 @@ export default function SelectQuiz() {
   const { categories, isLoading, hasErrors } = useSelector(
     (state) => state.categories
   );
-
   const dispatch = useDispatch();
+
+  //this fetches categories form api
   React.useEffect(() => {
     dispatch(action.fetchCategories());
   }, []);
-  React.useEffect(() => {}, []);
+
+  //For converting the user values to api demanded values to fetch Questions and answers.
   React.useEffect(() => {
     getUserValues();
-    console.log(userValues);
   }, [userValues]);
+
+  //Function for converting the user values to api demanded values to fetch Questions and answers.
   const getUserValues = () => {
     categories.map((val) => {
       if (val.name == userValues.category) {
@@ -55,6 +56,8 @@ export default function SelectQuiz() {
       });
     }
   };
+
+  //Function for navigation and checking for question amount enterd by user
   const startQuiz = () => {
     if (
       userValues.amount === "" ||
@@ -66,28 +69,29 @@ export default function SelectQuiz() {
       navigate("/quiz-page", {
         state: userValues,
       });
-      // dispatch(redirectAction.isTrue());
     }
   };
+
+  //For rendaring categories
   const renderCategories = () => {
     if (isLoading)
       return (
-        <div className="img">
+        <div className="loader-img">
           <img src={loader} />
           <h1>Loading...</h1>
         </div>
       );
     if (hasErrors)
       return (
-        <div className="img">
+        <div className="loader-img">
           <img src={errorGif} />
           <h1>Error while fething data</h1>
         </div>
       );
     return (
-      <div className="container1">
-        <div className="main">Please Select The Categories</div>
-        <div className="dropdowns">
+      <div className="select-quiz-container">
+        <div className="select-quiz-main">Please Select The Categories</div>
+        <div className="select-quiz-dropdowns">
           <DropDown
             arrayOfObjects={categories}
             onChange={(e) =>
@@ -97,7 +101,7 @@ export default function SelectQuiz() {
             }
           />
         </div>
-        <div className="dropdowns">
+        <div className="select-quiz-dropdowns">
           <DropDown
             arrayOfObjects={difficulty}
             onChange={(e) =>
@@ -107,7 +111,7 @@ export default function SelectQuiz() {
             }
           />
         </div>
-        <div className="dropdowns">
+        <div className="select-quiz-dropdowns">
           <input
             type="number"
             checked
@@ -122,7 +126,7 @@ export default function SelectQuiz() {
             placeholder="Number of questions.Min 10 and Max 50"
           />
         </div>
-        <div className="btn">
+        <div className="select-quiz-btn">
           <Button text="Start Quiz" onClickEvent={startQuiz} />
         </div>
       </div>

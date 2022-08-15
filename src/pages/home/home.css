@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap');
+
 .container{
     height: 100vh;
     font-size: 1rem;
@@ -22,11 +22,17 @@ footer{
     font-family: var( --font-family);
     font-size: 0.7rem;
 }
-header{
+.home-header{
     position:absolute;
     top: 0;
     font-family: var( --font-family);
-    font-size: 2rem;
+    font-size: 1rem;
+    background: #C1D5A4;
+ 
+    border: 5px solid #E8F9FD;
+}
+.home-header >p {
+    margin:5px 10px 10px 10px;
 }
 @media only screen and (max-width: 800px) {
     .responsive {

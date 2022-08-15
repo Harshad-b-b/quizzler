@@ -4,18 +4,22 @@ import * as action from "../../actions/redirectAction";
 import Button from "../../components/Buttons/Button";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux/es/exports";
+
 export default function Home() {
+  //Variables for this page are specified here
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const redirect = useSelector((state) => state.redirect);
   const [inputNameText, setInputNameText] = React.useState("");
+
   React.useEffect(() => {
     dispatch(action.isFalse());
     localStorage.setItem("name", inputNameText);
   }, [inputNameText]);
+
   const startQuiz = () => {
     if (inputNameText === "") {
-      alert("Please enter your name before start");
+      alert("Please enter your name before start.");
     } else {
       dispatch(action.isTrue());
       console.log(redirect);
@@ -24,8 +28,8 @@ export default function Home() {
   };
 
   return (
-    <div className="container d-flex flex-column justify-content-center align-items-center">
-      <header>
+    <div className="container d-flex position-relative flex-column justify-content-center align-items-center">
+      <header className="home-header">
         <p>✌ Support World Peace ✌</p>
       </header>
       <div className="row ">
