@@ -1,5 +1,4 @@
 import "./quizpage.css";
-
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
@@ -7,18 +6,18 @@ import loader from "../../assets/Book.gif";
 import axios from "axios";
 import Button from "../../components/Buttons/Button";
 
+//function to convert html entity
 function convertHTMLEntity(text) {
   const span = document.createElement("span");
-
   return text.replace(/&[#A-Za-z0-9]+;/gi, (entity, position, text) => {
     span.innerHTML = entity;
     return span.innerText;
   });
 }
+
 export default function QuizaPage() {
   const navigate = useNavigate();
   const location = useLocation();
-
   const [minutes, setMinutes] = useState(
     !location.state ? 10 : Math.round(location.state.amount / 2 - 1)
   );
@@ -32,15 +31,16 @@ export default function QuizaPage() {
   });
   const [loading, setLoading] = useState(false);
 
+  //For fetching data.
   React.useEffect(() => {
-    console.log(minutes);
     answers.userAnswers = [];
     for (let i = 0; i < location.state.amount; i++) {
       answers.userAnswers.push(null);
     }
+
+    //Function to fetch data
     async function fetchData() {
-      console.log("Before");
-      let resp = await axios({
+      let response = await axios({
         url: `https://opentdb.com/api.php?amount=${location.state.amount}&category=${location.state.category}&difficulty=${location.state.difficulty}`,
         method: "get",
         timeout: 8000,
@@ -48,18 +48,29 @@ export default function QuizaPage() {
           "Content-Type": "application/json",
         },
       });
-      console.log(resp);
+
       setLoading(true);
-      return resp;
+      return response;
     }
-    fetchData().then((resp) => {
-      if (resp.data.response_code === 1) {
+
+    fetchData().then((response) => {
+      //If response has nothing in it.
+      if (response.data.response_code === 1) {
         setNodata(
           "Not found please try with different categories or reduce the number of questions."
         );
       } else {
-        console.log("Found");
-        let arr = resp.data.results.map((val, index) => {
+        /*For mapping through response and adding all response data in the form of objects.
+         {
+          question:"",
+          answwers:{
+            answers:[],
+           bool:""  //for chaning the button color
+          }
+          correctAnswers:"",
+          name:"" //for form value
+         }*/
+        let responeObj = response.data.results.map((val, index) => {
           return {
             question: convertHTMLEntity(val.question),
 
@@ -75,17 +86,21 @@ export default function QuizaPage() {
             name: val.incorrect_answers[0].split(" ").join(""),
           };
         });
-        arr.map((val, i) => {
+        //For merging the correct answers to inccorect answers in random position.
+        responeObj.map((val, i) => {
           let rand = Math.floor(Math.random() * 4);
           return val.answers.splice(rand, 0, {
-            answers: resp.data.results[i].correct_answer,
+            answers: response.data.results[i].correct_answer,
             bool: false,
           });
         });
-        setQuestionAndAnswers(arr);
+
+        setQuestionAndAnswers(responeObj);
       }
     });
   }, []);
+
+  //useEffect for managing the timer.
   useEffect(() => {
     let timer = "";
     if (loading) {
@@ -110,6 +125,7 @@ export default function QuizaPage() {
 
     return () => clearInterval(timer);
   });
+
   const submitForm = () => {
     questionAndAnswers.map((val) => {
       answers.correctAnswers.push(val.correctAnswers);
@@ -119,6 +135,8 @@ export default function QuizaPage() {
       state: answers,
     });
   };
+  //To handle when user accidentally clicks back button
+
   const onValueChange = (event, index, indi) => {
     console.log(questionAndAnswers);
     questionAndAnswers.map((val, i) => {
@@ -157,7 +175,7 @@ export default function QuizaPage() {
                   {questionAndAnswers.map((val1, i) => {
                     return (
                       <div class="card">
-                        <li key={i} className="li">
+                        <li key={i} className="li" id="li">
                           <span> {val1.question} </span>
                           <ol className="options" type="a">
                             {val1.answers.map((val, index) => {
@@ -198,7 +216,7 @@ export default function QuizaPage() {
           </div>
         )
       ) : (
-        <div className="img">
+        <div className="loader-img">
           <img src={loader} />
           <h1>Loading....</h1>
         </div>

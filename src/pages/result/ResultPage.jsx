@@ -39,7 +39,7 @@ export default function () {
         clearTimeout(timeout);
       };
     },
-    stopConfetti === 10 ? [] : [stopConfetti]
+    stopConfetti === 30 ? [] : [stopConfetti]
   );
   return (
     <div>
@@ -51,7 +51,7 @@ export default function () {
                 className="d-flex justify-content-center"
                 style={{ width: "100%" }}
               >
-                <div style={{ display: stopConfetti === 10 ? "none" : "" }}>
+                <div style={{ display: stopConfetti === 30 ? "none" : "" }}>
                   <Confetti />
                 </div>
 
@@ -84,7 +84,7 @@ export default function () {
                         <b>{val}</b>
                       </li>
                     </div>
-                    <div className="row">
+                    <div className="row result-answers">
                       <div className=" col-4 col-xs-6 col-md-4">
                         <b>
                           <i>Correct Answer</i>
