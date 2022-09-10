@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 function App() {
   const redirect = useSelector((state) => state.redirect);
   const navigate = useNavigate();
-  console.log(redirect);
   return (
     <div className="App">
       <Routes>

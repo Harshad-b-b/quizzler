@@ -138,7 +138,6 @@ export default function QuizaPage() {
   //To handle when user accidentally clicks back button
 
   const onValueChange = (event, index, indi) => {
-    console.log(questionAndAnswers);
     questionAndAnswers.map((val, i) => {
       if (i === index) {
         val.answers.map((va) => {
@@ -149,8 +148,6 @@ export default function QuizaPage() {
         answers.userAnswers.splice(i, 0, event.target.value);
       }
     });
-
-    console.log(questionAndAnswers);
   };
   return (
     <div>
@@ -174,7 +171,7 @@ export default function QuizaPage() {
                 <ol>
                   {questionAndAnswers.map((val1, i) => {
                     return (
-                      <div class="card">
+                      <div className="card">
                         <li key={i} className="li" id="li">
                           <span> {val1.question} </span>
                           <ol className="options" type="a">
@@ -185,7 +182,7 @@ export default function QuizaPage() {
                                     style={{
                                       background: val.bool ? "orange" : "",
                                     }}
-                                    class="containerwa"
+                                    className="containerwa"
                                   >
                                     {val.answers}
                                     <input
@@ -197,7 +194,7 @@ export default function QuizaPage() {
                                         onValueChange(e, i, index)
                                       }
                                     />
-                                    <span class="checkmark"></span>
+                                    <span className="checkmark"></span>
                                   </label>
                                 </li>
                               );

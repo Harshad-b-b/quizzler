@@ -16,7 +16,6 @@ export default function () {
   const [stopConfetti, setStopConfetti] = React.useState(0);
   React.useEffect(() => {
     getvals();
-    console.log(location);
   }, []);
   const getvals = () => {
     location.state.correctAnswers.map((val, i) => {
@@ -33,7 +32,6 @@ export default function () {
       const timeout = setTimeout(() => {
         setStopConfetti((prev) => prev + 1);
       }, 1000);
-      console.log(stopConfetti);
 
       return () => {
         clearTimeout(timeout);

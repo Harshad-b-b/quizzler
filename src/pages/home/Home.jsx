@@ -22,7 +22,7 @@ export default function Home() {
       alert("Please enter your name before start.");
     } else {
       dispatch(action.isTrue());
-      console.log(redirect);
+
       navigate("/select-quiz");
     }
   };
