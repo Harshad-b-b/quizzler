@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/quizzler/static/css/main.55ae0bff.css",
+    "main.js": "/quizzler/static/js/main.b9737bb4.js",
+    "static/js/787.6c95e5f1.chunk.js": "/quizzler/static/js/787.6c95e5f1.chunk.js",
+    "static/media/error.gif": "/quizzler/static/media/error.6df76a109e52a93fa41c.gif",
+    "static/media/Book.gif": "/quizzler/static/media/Book.cbf51cb4144f94deae58.gif",
+    "index.html": "/quizzler/index.html",
+    "main.55ae0bff.css.map": "/quizzler/static/css/main.55ae0bff.css.map",
+    "main.b9737bb4.js.map": "/quizzler/static/js/main.b9737bb4.js.map",
+    "787.6c95e5f1.chunk.js.map": "/quizzler/static/js/787.6c95e5f1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.55ae0bff.css",
+    "static/js/main.b9737bb4.js"
+  ]
+}
