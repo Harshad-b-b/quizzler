@@ -15,7 +15,7 @@ function App() {
 
         <Route
           path="/select-quiz"
-          element={redirect ? <SelectQuiz /> : <Navigate to="/" />}
+          element={redirect ? <SelectQuiz /> :<Navigate to="/" />}
         />
 
         {/* <Route
